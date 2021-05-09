@@ -1,32 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
+import { selectMovies } from '../features/movie/movieSlice'
+import { useSelector } from 'react-redux' 
 
 function Movies() {
+    const movies = useSelector(selectMovies) ;
+    
     return (
-        <div>
+        <Container>
             <h4>Recommended for you</h4>
             <Content>
-                <Wrap>
-                    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/6EA416AD3B15FCC1BADC817A932A57FFF707556DB2233FFCB4CFEB7C8EEDE23C/scale?width=400&aspectRatio=1.78&format=jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/6EA416AD3B15FCC1BADC817A932A57FFF707556DB2233FFCB4CFEB7C8EEDE23C/scale?width=400&aspectRatio=1.78&format=jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/6EA416AD3B15FCC1BADC817A932A57FFF707556DB2233FFCB4CFEB7C8EEDE23C/scale?width=400&aspectRatio=1.78&format=jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/6EA416AD3B15FCC1BADC817A932A57FFF707556DB2233FFCB4CFEB7C8EEDE23C/scale?width=400&aspectRatio=1.78&format=jpeg" />
-                </Wrap>                                                
+                {
+                    movies && 
+                        movies.map((movie) => {                            
+                            return (
+                                <Wrap>
+                                    <img src={movie.cardImg} key={movie.id} alt=""/>
+                                </Wrap>
+                            )
+                        }
+                    ) 
+                }
             </Content>
-        </div>
+        </Container>
     )
 }
 
 export default Movies
 
 const Container = styled.div`
-
 `
 
 const Content = styled.div`
