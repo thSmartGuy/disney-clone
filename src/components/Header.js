@@ -89,6 +89,7 @@ function Header() {
                             </a>   
                         </NavMenu>
 
+                        <UserName> {userName.toLowerCase()} </UserName>
                         <UserImg src={userPhoto} onClick={signOut}/>
                     </>
                 )
@@ -185,4 +186,9 @@ const LoginContainer = styled.div`
     flex: 1;
     display: flex;
     justify-content: flex-end;
+`
+
+const UserName = styled.div`
+    text-transform: capitalize;
+    margin-right: 2%;
 `
