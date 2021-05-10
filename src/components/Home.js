@@ -6,6 +6,7 @@ import Viewers from './Viewers';
 import db from './../firebase'
 import { useDispatch } from 'react-redux'
 import { setMovies } from '../features/movie/movieSlice'
+import Footer from "./Footer"
 
 function Home() {
     const dispatch = useDispatch()
@@ -26,6 +27,7 @@ function Home() {
             <ImageSlider />
             <Viewers />
             <Movies />
+            <Footer />
         </Container>
     )
 }
